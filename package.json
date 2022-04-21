@@ -1,0 +1,40 @@
+{
+  "name": "cropbytes-contracts",
+  "version": "1.0.0",
+  "description": "Contains Smart Contracts for the CBX token used in CropBytes",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "cross-env NODE_ENV=development mocha './{,!(node_modules)/**/}*.test.js' --exit",
+    "verify:ropsten": "truffle run verify --network ropsten CropBytes && truffle run verify --network ropsten CropBytesVesting",
+    "deploy:ropsten": "truffle  migrate --network ropsten CropBytes && npm run verify:ropsten",
+    "verify:mainnet": "truffle run verify --network eth CropBytes && truffle run verify --network eth CropBytesVesting",
+    "deploy:mainnet": "truffle  migrate --network eth CropBytes && npm run verify:mainnet"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^1.4.2",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "mocha": "^9.1.3",
+    "openzeppelin-solidity": "^4.3.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.3.0",
+    "ethers": "^5.5.1",
+    "truffle-plugin-verify": "^0.5.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/cropbytes-crypto-farming/cropbytes-contracts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/cropbytes-crypto-farming/cropbytes-contracts/issues"
+  },
+  "homepage": "https://gitlab.com/cropbytes-crypto-farming/cropbytes-contracts#readme"
+}
